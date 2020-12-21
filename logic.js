@@ -1,20 +1,21 @@
-//time -- can't decide whether this+date should be global or not, other stuff might read them?
+// ============== time ============== 
+//can't decide whether this+date should be global or not, other stuff might read them?
+
 let currentTime = $(".TIME")
 setInterval(function(){
     currentTime.empty()
     currentTime.append(dayjs().format("h:mm:ss a"))
 },1000)
 
-//date
+//============== date ============== 
+
 let currentDate = $(".DATE")
 setInterval(function(){
     currentDate.empty()
     currentDate.append(dayjs().format("ddd . MM . DD"))
 },1000)
 
-//schedule 
-let schedule = $(".SCHEDULE") //container content will be populated to
-//container for hours
+//============== schedule ==============  
 
 let workDay = [
     {time:"9am"},
@@ -28,29 +29,30 @@ let workDay = [
     {time:"5pm"},
 ]
 
-//Populate workHours with hours of the day
 
-//Populate scheduleItems with textareas
-//can i set this to spawn in exactly 9? 1 per hour
-//test just getting one spawned in before we mess with other stuff
+appendTasks(workDay)
+buildSchedule(workDay) //parsing in workDay is what specifies the array for text to be pulled from
 
-appendTasks()
-buildSchedule(workDay) //this is what specifies the array for text to be pulled from
-
-function buildSchedule(anon){
-    for (i=0; i<anon.length; i++){
-        let hour =  $("<div></div>").addClass("hour").text(anon[i].time) // create a div for each hour, apply class hour, textcontent is pulled from time index 
-        //hour.attr("id", anon[i].time)
+//Populate workHours with hours of the day [DONE!]
+function buildSchedule(workDay){
+    for (i=0; i<workDay.length; i++){
+        let hour =  $("<div></div>").addClass("hour").text(workDay[i].time) // create a div for each hour, apply class hour, textcontent is pulled from time index 
         $(".HOURS").append(hour)// append to HOURS div
     }
 }
 
-function appendTasks(){
-    let tasks = $("<textarea></textarea>")
-    tasks.attr("id", "textarea")
-    $(".tasks").append(tasks)
-}
+//if/else statement comparing the time listed in .hour div to the current local time
+    //IF current time === hour in div, set task ID to PRESENT - or would the be an else?
+    //IF current time > hour in div, set task ID to PAST
+    //IF current time < hour in div, set task ID to FUTURE
+//
 
-//part of the initialization of the document, move higher into a function that calls all these guys?
-// appendTasks(workDay) 
+//Populate scheduleItems with textareas [DONE!]
+function appendTasks(){
+    for (i=0; i<workDay.length; i++){
+        let tasks = $("<textarea></textarea>")
+        tasks.attr("id", "textarea")
+        $(".tasks").append(tasks)
+    }
+}
 
