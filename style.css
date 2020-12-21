@@ -1,0 +1,128 @@
+html, body, .grid-container { height: 100%; margin: 0; }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 0.5fr 2.5fr 0.5fr;
+  grid-template-rows: 0.2fr 0.5fr 3.1fr 0.2fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . ."
+    ". header ."
+    ". schedule ."
+    ". . .";
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". TITLE ."
+    "TIME . DATE";
+  grid-area: header;
+  background-color: black;
+  color: white;
+  padding: 30px;
+}
+
+.hr{
+  z-index: 99;
+  border: 5px solid black;
+}
+
+/*going to be JS interactive*/
+.DATE { 
+    grid-area: DATE; 
+    text-align: center;
+}
+
+/*going to be JS interactive*/
+.TIME { 
+    grid-area: TIME; 
+    text-align: center;
+}
+
+.TITLE { 
+    grid-area: TITLE; 
+    font-family: 'Josefin Sans', sans-serif;
+    text-align:center; 
+    border-bottom: 1px solid white; 
+    font-size: 25px;
+    line-height: 2px; 
+    margin:10px 0 20px;
+    color: #f1c232;
+}
+    .title-wrap{
+        background:black; 
+        padding:0 20px; 
+}
+
+.schedule {
+  display: grid;
+  grid-template-columns: 0.3fr 2.6fr 0.3fr;
+  grid-template-rows: 0.2fr 0.6fr 0.2fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "hours schedule-item button"
+    "hours . ."
+    "hours . ."
+    "hours . .";
+  grid-area: schedule;
+}
+
+.hours {
+  gap: 0px 0px;
+  grid-area: hours;
+  text-align: center;
+  color: white;
+  background-color: black;
+}
+  .hour{
+    padding: 15px;
+    min-height: 80px;
+    max-height: 80px;
+  }
+
+.schedule-items {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.2fr;
+  gap: 0px 0px;
+  grid-area: schedule-item;
+}
+
+textarea {
+  border-color: black;
+  border-width: 1px 0px 1px 0px;
+  font-size: 13px;
+  line-height: 15px;
+  padding: 15px;
+  min-height: 80px;
+  max-height: 80px;
+  overflow: auto;
+}
+
+#past {
+    background-color: white;
+}
+
+#present {
+    background-color: #f1c232;
+    font-weight: bold;
+}
+
+#future {
+    background-color: #1ebebe;
+    font-weight: bold;
+}
+
+.buttons { grid-area: button; }
+
+button{
+  border: 0;
+  width: 100%;
+  background-color: transparent;
+  min-height: 80px;
+  max-height: 80px;
+}

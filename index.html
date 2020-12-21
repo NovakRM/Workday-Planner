@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <script src="https://use.fontawesome.com/a590d3a2e5.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Work Day Scheduler</title>
+  </head>
+
+  <body>
+    <div class="grid-container">
+      <div class="header">
+        <div class="TIME">TIME</div> 
+        <!--dynamically updates-->
+        <div class="DATE">DATE</div> 
+        <!--dynamically updates-->
+       <div class="TITLE"><span class="title-wrap">WORK DAY SCHEDULER</span></div>
+      </div>
+      <div class="schedule">
+        <div class="hours">
+          <div class="hour">9AM</div>
+          <div class="hour">10AM</div>
+          <div class="hour">11AM</div>
+          <div class="hour">12PM</div>
+          <div class="hour">1PM</div>
+          <div class="hour">2PM</div>
+          <div class="hour">3PM</div>
+          <div class="hour">4PM</div>
+          <div class="hour">5PM</div>
+        </div>
+        <div class="schedule-items"> 
+      <textarea class="item" id="past"></textarea>
+          
+     <textarea class="item" id="past"></textarea>
+       
+     <textarea class="item" id="present"></textarea>
+          
+     <textarea class="item" id="present"></textarea>
+          
+     <textarea class="item" id="future"></textarea>
+    
+          
+          
+        </div>
+        <div class="buttons">
+         <button><i class="fas fa-calendar-check fa-2x"></i></i></button>
+         <button><i class="fas fa-calendar-check fa-2x"></i></i></button>
+         <button><i class="fas fa-calendar-check fa-2x"></i></i></button>
+         <button><i class="fas fa-calendar-check fa-2x"></i></i></button>
+         <button><i class="fas fa-calendar-check fa-2x"></i></i></button>
+         </div>
+        </div>
+      </div>
+    
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  </body>
+</html>
