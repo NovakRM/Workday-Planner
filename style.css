@@ -58,10 +58,10 @@ html, body, .grid-container { height: 100%; margin: 0; }
         padding:0 20px; 
 }
 
-.schedule {
+.SCHEDULE {
   display: grid;
   grid-template-columns: 0.3fr 2.6fr 0.3fr;
-  grid-template-rows: 0.2fr 0.6fr 0.2fr;
+  grid-template-rows: 5fr;
   gap: 0px 0px;
   grid-template-areas:
     "hours schedule-item button"
@@ -71,23 +71,22 @@ html, body, .grid-container { height: 100%; margin: 0; }
   grid-area: schedule;
 }
 
-.hours {
+.HOURS { /*where it's being appended*/
   gap: 0px 0px;
   grid-area: hours;
   text-align: center;
   color: white;
   background-color: black;
 }
-  .hour{
+  .hour{ /*what's being generated*/
     padding: 15px;
     min-height: 80px;
     max-height: 80px;
   }
 
-.schedule-items {
+.tasks { /*container for textareas*/
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.2fr;
   gap: 0px 0px;
   grid-area: schedule-item;
 }
@@ -104,17 +103,17 @@ textarea {
 }
 
 #past {
-    background-color: white;
+  background-color: white;
 }
 
 #present {
-    background-color: #f1c232;
-    font-weight: bold;
+  background-color: #f1c232;
+  font-weight: bold;
 }
 
 #future {
-    background-color: #1ebebe;
-    font-weight: bold;
+  background-color: #1ebebe;
+  font-weight: bold;
 }
 
 .buttons { grid-area: button; }

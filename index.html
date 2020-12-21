@@ -32,38 +32,18 @@
         <!--dynamically updates-->
        <div class="TITLE"><span class="title-wrap">WORK DAY SCHEDULER</span></div>
       </div>
-      <div class="schedule">
-        <div class="hours">
-          <div class="hour">9AM</div>
-          <div class="hour">10AM</div>
-          <div class="hour">11AM</div>
-          <div class="hour">12PM</div>
-          <div class="hour">1PM</div>
-          <div class="hour">2PM</div>
-          <div class="hour">3PM</div>
-          <div class="hour">4PM</div>
-          <div class="hour">5PM</div>
+      <div class="SCHEDULE">
+        <div class="HOURS">
         </div>
-        <div class="schedule-items"> 
-      <textarea class="item" id="past"></textarea>
-          
-     <textarea class="item" id="past"></textarea>
-       
-     <textarea class="item" id="present"></textarea>
-          
-     <textarea class="item" id="present"></textarea>
-          
-     <textarea class="item" id="future"></textarea>
-    
-          
-          
+        <div class="tasks"> 
+          <!--JS will append TEXTAREA elements here-->
         </div>
         <div class="buttons">
-         <button><i class="fas fa-calendar-check fa-2x"></i></i></button>
-         <button><i class="fas fa-calendar-check fa-2x"></i></i></button>
-         <button><i class="fas fa-calendar-check fa-2x"></i></i></button>
-         <button><i class="fas fa-calendar-check fa-2x"></i></i></button>
-         <button><i class="fas fa-calendar-check fa-2x"></i></i></button>
+         <button><i class="fas fa-calendar-check fa-2x"></i></button>
+         <button><i class="fas fa-calendar-check fa-2x"></i></button>
+         <button><i class="fas fa-calendar-check fa-2x"></i></button>
+         <button><i class="fas fa-calendar-check fa-2x"></i></button>
+         <button><i class="fas fa-calendar-check fa-2x"></i></button>
          </div>
         </div>
       </div>
@@ -71,5 +51,9 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/plugin/utc.js"></script>
+    <script>dayjs.extend(window.dayjs_plugin_utc)</script>
+    <script src="logic.js"></script>
   </body>
 </html>
