@@ -14,7 +14,7 @@ setInterval(function(){
 
 //schedule 
 let schedule = $(".SCHEDULE") //container content will be populated to
-let workHours = $(".HOURS") //container for hours
+//container for hours
 
 let workDay = [
     {time:"9am"},
@@ -31,13 +31,26 @@ let workDay = [
 //Populate workHours with hours of the day
 
 //Populate scheduleItems with textareas
-//can i set this to spawn in exactly 8? 1 per hour
+//can i set this to spawn in exactly 9? 1 per hour
 //test just getting one spawned in before we mess with other stuff
+
+appendTasks()
+buildSchedule(workDay) //this is what specifies the array for text to be pulled from
+
+function buildSchedule(anon){
+    for (i=0; i<anon.length; i++){
+        let hour =  $("<div></div>").addClass("hour").text(anon[i].time) // create a div for each hour, apply class hour, textcontent is pulled from time index 
+        //hour.attr("id", anon[i].time)
+        $(".HOURS").append(hour)// append to HOURS div
+    }
+}
+
 function appendTasks(){
-    let tasks = $("<textarea>")
+    let tasks = $("<textarea></textarea>")
     tasks.attr("id", "textarea")
-    $(".tasks").append("<textarea>")
+    $(".tasks").append(tasks)
 }
 
 //part of the initialization of the document, move higher into a function that calls all these guys?
-appendTasks()
+// appendTasks(workDay) 
+
