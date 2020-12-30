@@ -7,6 +7,12 @@ setInterval(function(){
     currentTime.append(dayjs().format("h:mm:ss a"))
 },1000)
 
+//============== color changer ==============
+
+setInterval(function(){
+    setColor()
+},1000) //checking to see if it needs to change colors every second
+
 //============== date ============== 
 
 let currentDate = $(".DATE")
@@ -18,20 +24,21 @@ setInterval(function(){
 //============== schedule ==============  
 
 let workDay = [
-    {time:"9am"},
-    {time:"10am"},
-    {time:"11am"},
-    {time:"12pm"},
-    {time:"1pm"},
-    {time:"2pm"},
-    {time:"3pm"},
-    {time:"4pm"},
-    {time:"5pm"},
+    {time:"9am", key:9}, //H is called in dayjs, if KEY is > (H)
+    {time:"10am", key:10},
+    {time:"11am", key:11},
+    {time:"12pm", key:12},
+    {time:"1pm", key:13},
+    {time:"2pm", key:14},
+    {time:"3pm", key:15},
+    {time:"4pm", key:16},
+    {time:"5pm", key:17},
 ]
 
 
 appendTasks(workDay)
 buildSchedule(workDay) //parsing in workDay is what specifies the array for text to be pulled from
+
 
 //Populate workHours with hours of the day [DONE!]
 function buildSchedule(workDay){
@@ -41,18 +48,25 @@ function buildSchedule(workDay){
     }
 }
 
-//if/else statement comparing the time listed in .hour div to the current local time
-    //IF current time === hour in div, set task ID to PRESENT - or would the be an else?
-    //IF current time > hour in div, set task ID to PAST
-    //IF current time < hour in div, set task ID to FUTURE
-//
+
+//if/else statement comparing the time listed in .hour div to the current local time [DONE]
+function setColor(){
+    for (let i=0; i<9; i++){
+        let newColor = $(".input")[i].attributes[1].value // pointing to key value assigned to each textarea
+        if(parseInt(newColor) === parseInt(dayjs().format('H'))){
+            $(".input")[i].id="present"
+        }else if(parseInt(newColor) < parseInt(dayjs().format('H'))){
+            $(".input")[i].id="past"
+        } else {$(".input")[i].id="future" }
+    }
+}
 
 //Populate scheduleItems with textareas [DONE!]
 function appendTasks(){
     for (i=0; i<workDay.length; i++){
         let tasks = $("<textarea></textarea>")
-        tasks.attr("id", "textarea")
+        tasks.attr("class", "input")
+        tasks.attr("key", workDay[i].key)
         $(".tasks").append(tasks)
     }
 }
-
