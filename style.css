@@ -1,26 +1,11 @@
-html, body, .grid-container { height: 100%; margin: 0; background-color: black;}
+html, body { height: 100%; background-color: black;}
 
-.grid-container {
-  display: grid;
-  grid-template-columns: 0.5fr 2.5fr 0.5fr;
-  grid-template-rows: 0.2fr 0.5fr 3.1fr 0.2fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    ". . ."
-    ". header ."
-    ". schedule ."
-    ". . .";
+body {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .header {
-  display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    ". TITLE ."
-    "TIME . DATE";
-  grid-area: header;
   background-color: black;
   color: white;
   padding: 25px 0px 25px 0px;
@@ -31,22 +16,25 @@ html, body, .grid-container { height: 100%; margin: 0; background-color: black;}
   border: 5px solid black;
 }
 
+.row{
+  margin-bottom: 10px;
+}
+
 /*going to be JS interactive, can't combine due to dedicated grid areas*/
-.DATE { 
-    grid-area: DATE; 
+.DATE {  
     font-weight: bold;
     text-align: center;
+    float: left;
 }
 
 /*going to be JS interactive*/
 .TIME { 
-    grid-area: TIME; 
     font-weight: bold;
     text-align: center;
+    float: right;
 }
 
 .TITLE { 
-    grid-area: TITLE; 
     font-family: 'Josefin Sans', sans-serif;
     text-align:center; 
     border-bottom: 1px solid white; 
@@ -61,48 +49,27 @@ html, body, .grid-container { height: 100%; margin: 0; background-color: black;}
 }
 
 .SCHEDULE {
-  display: grid;
-  grid-template-columns: 0.3fr 2.6fr 0.3fr;
-  grid-template-rows: 5fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    "hours schedule-item button"
-    "hours . ."
-    "hours . ."
-    "hours . .";
-  grid-area: schedule;
+ margin: 5vw;
 }
 
-.HOURS { /*where it's being appended*/
-  gap: 0px 0px;
-  grid-area: hours;
-  text-align: center;
+.hour{ /*what's being generated*/
+  min-height: 80px;
+  max-height: 80px;
+  font-weight: bold;
   color: white;
-  background-color: black;
-}
-  .hour{ /*what's being generated*/
-    padding: 15px;
-    min-height: 80px;
-    max-height: 80px;
-    font-weight: bold;
-  }
-
-.tasks { /*container for textareas*/
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0px 0px;
-  grid-area: schedule-item;
+  text-align: center;
 }
 
 textarea {
   border-color: black;
   border-width: 1px 0px 1px 0px;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
   line-height: 15px;
-  padding: 15px;
   min-height: 80px;
   max-height: 80px;
   overflow: auto;
+  padding: 10px;
 }
 
 #past {
@@ -119,12 +86,9 @@ textarea {
   font-weight: bold;
 }
 
-.buttons { grid-area: button; }
+/* .buttons { grid-area: button; } */
 
 button{
   border: 0;
-  width: 100%;
   background-color: #f1c232;
-  min-height: 80px;
-  max-height: 80px;
 }

@@ -24,7 +24,7 @@ setInterval(function(){
 //============== schedule ==============  
 
 let workDay = [
-    {time:"9am", key:9}, //H is called in dayjs, if KEY is > (H)
+    {time:"9am", key:9}, //H is called in dayjs, our comparisons will be if KEY is > (H)
     {time:"10am", key:10},
     {time:"11am", key:11},
     {time:"12pm", key:12},
@@ -36,15 +36,25 @@ let workDay = [
 ]
 
 
-appendTasks(workDay)
 buildSchedule(workDay) //parsing in workDay is what specifies the array for text to be pulled from
 
 
-//Populate workHours with hours of the day [DONE!]
 function buildSchedule(workDay){
+    //Populate workHours with hours of the day [DONE!]
     for (i=0; i<workDay.length; i++){
-        let hour =  $("<div></div>").addClass("hour").text(workDay[i].time) // create a div for each hour, apply class hour, textcontent is pulled from time index 
-        $(".HOURS").append(hour)// append to HOURS div
+        let container =  $("<div></div>").addClass("row")
+        let hour =  $("<div></div>").addClass("hour col-2").text(workDay[i].time) // create a div for each hour, apply class hour, textcontent is pulled from time index 
+        container.append(hour)// append to HOURS 
+
+        //Populate scheduleItems with textareas [DONE!]
+        let tasks = $("<textarea></textarea>")
+        tasks.attr("class", "input col-8")
+        tasks.attr("key", workDay[i].key)
+        container.append(tasks)
+
+        let buttons = $("<button></button>").addClass("fas fa-calendar-check fa-2x col-2")
+        container.append(buttons)
+        $(".SCHEDULE").append(container)
     }
 }
 
@@ -61,12 +71,3 @@ function setColor(){
     }
 }
 
-//Populate scheduleItems with textareas [DONE!]
-function appendTasks(){
-    for (i=0; i<workDay.length; i++){
-        let tasks = $("<textarea></textarea>")
-        tasks.attr("class", "input")
-        tasks.attr("key", workDay[i].key)
-        $(".tasks").append(tasks)
-    }
-}
