@@ -72,16 +72,16 @@ textarea {
   padding: 10px;
 }
 
-#past {
+.past {
   background-color: white;
 }
 
-#present {
+.present {
   background-color: #f1c232;
   font-weight: bold;
 }
 
-#future {
+.future {
   background-color: #1ebebe;
   font-weight: bold;
 }
