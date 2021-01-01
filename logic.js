@@ -69,23 +69,23 @@ function buildSchedule(workDay){
 function saveItems (workDay){
     for (i=0; i<workDay.length; i++){ //looping thru workDay array
         $("#" + "bar" + workDay[i].key).on("click", function(){ //grabbing previously appended buttons
-            // let userInput = $("#foo" + workDay[i].key + "")
-            // localStorage.setItem("textbox" + workDay[i].key, userInput[0].value)
             console.log("bar")
+            let userInput = $("#foo" + workDay[0].key + "")
+            localStorage.setItem("foo" + workDay[0].key , userInput[0].value)
         })
     }
 }
 
 //Local Storage items [TESTING]
-// foo9.value = localStorage.getItem("foo9")
-// foo10.value = localStorage.getItem("foo10")
-// foo11.value = localStorage.getItem("foo11")
-// foo12.value = localStorage.getItem("foo12")
-// foo13.value = localStorage.getItem("foo13")
-// foo14.value = localStorage.getItem("foo14")
-// foo15.value = localStorage.getItem("foo15")
-// foo16.value = localStorage.getItem("foo16")
-// foo17.value = localStorage.getItem("foo17")
+foo9.value = localStorage.getItem("foo9")
+foo10.value = localStorage.getItem("foo10")
+foo11.value = localStorage.getItem("foo11")
+foo12.value = localStorage.getItem("foo12")
+foo13.value = localStorage.getItem("foo13")
+foo14.value = localStorage.getItem("foo14")
+foo15.value = localStorage.getItem("foo15")
+foo16.value = localStorage.getItem("foo16")
+foo17.value = localStorage.getItem("foo17")
 
 
 //if/else statement comparing the time listed in .hour div to the current local time [DONE]
