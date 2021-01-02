@@ -58,8 +58,8 @@ function buildSchedule(workDay){
         container.append(tasks)
 
         //Populate container with buttons [DONE]
-        let buttons = $("<button></button>").addClass("fas fa-calendar-check fa-2x col-2")
-        buttons.attr("id", "bar") //id to point to in storage function
+        let buttons = $("<button></button>").addClass("fas fa-calendar-check fa-2x col-2 bar")
+        //buttons.attr("id", "bar") //id to point to in storage function
         container.append(buttons)
         
         //Append all of the above to document [DONE]
@@ -69,34 +69,26 @@ function buildSchedule(workDay){
 
 
 //Set local storage [TESTING]
-$(document).on("click", function(event){ //listener to entire document
-    if (event.target.matches("#bar")){ //event delegation for if click target = BAR button
-        let value = $("#bar").siblings("#foo").val() //elements in same row, point to sibling textarea
-        let key = $("#bar").parent().attr("key") //pointing to key of parent element, row
-        console.log(key,value)
-        localStorage.setItem(key,value)
-    }
+//===NEW LOGIC===
+$(".bar").on("click", function(){
+    var value = $(this).siblings("#foo").val(); //elements in same row, point to sibling textarea
+    var key =  $(this).parent().attr("key") //pointing to key of parent element, row
+    console.log(key, value);
+
+    localStorage.setItem(key, value)
 })
 
-// $("#bar").on("click", function(){
-//     var value = $(this).siblings("#foo").val();
-//     var key =  $(this).parent().attr("key")
-//     console.log(key, value);
-
-//     localStorage.setItem(key, value)
+//===OLD LOGIC=== 
+// probably doesnt work because .this points to the whole document, doesn't have siblings. 
+// pointed to children, listeners exist on all buttons but only bringing up undefined key/val
+// $(document).on("click", function(event){ //listener to entire document
+//     if (event.target.matches(".bar")){ //event delegation for if click target = BAR button
+//         let value = $(document).children("#foo").val() 
+//         let key = $(document).children(".row").attr("key") 
+//         console.log(key,value)
+//         localStorage.setItem(key,value)
+//     }
 // })
-
-// //Local Storage items [TESTING]
-// foo9.value = localStorage.getItem("foo9")
-// foo10.value = localStorage.getItem("foo10")
-// foo11.value = localStorage.getItem("foo11")
-// foo12.value = localStorage.getItem("foo12")
-// foo13.value = localStorage.getItem("foo13")
-// foo14.value = localStorage.getItem("foo14")
-// foo15.value = localStorage.getItem("foo15")
-// foo16.value = localStorage.getItem("foo16")
-// foo17.value = localStorage.getItem("foo17")
-
 
 //if/else statement comparing the time listed in .hour div to the current local time [DONE]
 function setColor(){
